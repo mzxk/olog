@@ -14,30 +14,30 @@ import (
 
 const (
 	//INFO 信息
-	INFO = "[I]"
+	_INFO = "[INFO] "
 	//ERR 错误
-	ERR = "[E]"
+	_ERR = "[ERROR] "
 	//WARN 警告
-	WARN = "[W]"
+	_WARN = "[WARN] "
 	//IMP 重要
-	IMP = "[P]"
+	_IMP = "[IMP] "
 )
 
 // var logs *Logg
 var lg *logg
 var once sync.Once
 
-func E(v ...interface{}) {
-	log.Println(ERR, v)
+func Err(v ...interface{}) {
+	log.Output(2, _ERR+fmt.Sprintln(v...))
 }
-func P(v ...interface{}) {
-	log.Println(IMP, v)
+func Imp(v ...interface{}) {
+	log.Output(2, _IMP+fmt.Sprintln(v...))
 }
-func I(v ...interface{}) {
-	log.Println(INFO, v)
+func Info(v ...interface{}) {
+	log.Output(2, _INFO+fmt.Sprintln(v...))
 }
-func W(v ...interface{}) {
-	log.Println(WARN, v)
+func Warn(v ...interface{}) {
+	log.Output(2, _WARN+fmt.Sprintln(v...))
 }
 func init() {
 	lg = &logg{}
